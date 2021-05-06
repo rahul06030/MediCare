@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+	
+<div class="container text-center col-md-6">
+
+<div class="card bg-info text-light   ">
+  <h1 class="display-4">Heart Disease Pridiction</h1>
+  <p class="lead"> </p>
+  <hr class="my-4">
+  <!-- <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> -->
+  <p class="lead ">
+        <a href="/train" class="btn btn-secondary  btn-lg">Train Model</a> &nbsp &nbsp 
+        <a href="/heart_disease" class="btn btn-secondary  btn-lg">Predict</a>  </p>
+
+    </div>
+	   
+</div>
+
+
+<div class="container text-center col-md-6">
+    <br><br>
+    <div class="card bg-info text-light  " >
+      <h1 class="display-4">Diabetes Prediction</h1>
+    <!--   <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p> -->
+      <hr class="my-4">
+      <!-- <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> -->
+      <p class="lead ">
+
+	    <a href="/diabities/train" class="btn btn-secondary  btn-lg">Train Model</a>&nbsp &nbsp 
+	    <a href="/diabities/predict" class="btn btn-secondary  btn-lg">Predict</a>  </p>
+</div>
+</div>
+{% endblock %}

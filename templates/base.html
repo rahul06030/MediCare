@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Medi care</title>
+    </head>
+    <body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger  ">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto ">
+
+                {% if user.is_authenticated %}
+                 <li class="nav-item active">
+                    <a class="nav-link" href="/">{{user.username|title}} <span class="sr-only">(current)</span></a>
+                </li> 
+                <li class="nav-item active">
+                    <a class="nav-link" href="/logout">Logout <span class="sr-only">(current)</span></a>
+                </li>
+
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+          
+
+                  <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Prediction
+                    </a>
+                    <div class="dropdown-menu bg-dark " aria-labelledby="navbarDropdown">
+                    <a class="nav-link" href="/heart_disease">Heart</a>
+                    <a class="nav-link" href="/diabities/predict">Diabetes </a>
+                      
+                  </li>
+
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Show Data
+                    </a>
+                    <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                    <a class="nav-link" href="/db">Heart <span class="sr-only"></span></a>
+                    <a class="nav-link" href="/diabities/db">Diabetes <span class="sr-only"></span></a>
+                      
+                  </li>
+
+                    {% else %}
+
+                    <li class="nav-item active">
+                    <a class="nav-link" href="/login">Login <span class="sr-only">(current)</span></a>
+                </li> 
+                <li class="nav-item active">
+                    <a class="nav-link" href="/register">Register <span class="sr-only">(current)</span></a>
+                </li>
+                  
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+<br><br>
+
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+
+        <div {% if message.tags %} class="alert alert-{{ message.tags }} {% endif %} justify center">
+        <strong><li {% if message.tags %} class="alert alert-{{ message.tags }} justify center"{% endif %}>{{ message }}</li></strong>
+      </div>
+        {% endfor %}
+    </ul>
+    {% endif %}    
+
+    <br>
+
+
+{% if error_messages %}
+    <ul class="messages">
+        {% for message in error_messages %}
+
+        <div class="alert alert-error justify center">
+        <strong><li  class="alert alert-error justify center" >{{ message }}</li></strong>
+      </div>
+        {% endfor %}
+    </ul>
+    {% endif %}    
+
+    <br>
+    {% block main %}
+    {% endblock %}
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>

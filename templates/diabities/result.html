@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="container center justify">
+			
+			<!-- <div> -->
+		<a href="/" class="btn btn-primary btn-lg active text-left" role="button" aria-pressed="true">Home</a>
+		<a href="/diabities/predict" class="btn btn-primary btn-lg active text-right" role="button" aria-pressed="true">Back</a>
+<!-- </div> -->
+            
+			<table class="table table-stripped text-light text-center" >
+               <tbody>
+               	<thead class="thead-light">	  
+               	 <tr> 	  <th >
+               	  Patient Report 
+               	</th>  	<th>
+               		
+               	</th> </tr> 
+
+               </thead>
+				  {% for key, value in data.items %}
+				   	<tr {%if data.Result >= 1 %}class="bg-warning" {% else %} class="bg-success"  {% endif %} >
+	                <th scope="row">{{key}}</th>
+	                <td>{{value }}</td>
+	            	</tr>
+				  {% endfor %}
+				</tbody>
+			 </table>
+			 
+</div>
+
+  
+{%endblock%}
